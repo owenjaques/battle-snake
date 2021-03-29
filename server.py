@@ -2,11 +2,12 @@ import os
 import random
 
 import cherrypy
-from snakeBrain import Brain
+from brain import Brain
 
 class Battlesnake(object):
 	def __init__():
 		self.brain = None
+
 	@cherrypy.expose
 	@cherrypy.tools.json_out()
 	def index(self):
