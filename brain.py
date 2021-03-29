@@ -1,7 +1,7 @@
 import numpy as np
 
 class Brain:
-	def __init__():
+	def __init__(self):
 		self.board_width = 0
 		self.game = None
 

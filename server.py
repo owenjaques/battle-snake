@@ -5,7 +5,7 @@ import cherrypy
 from brain import Brain
 
 class Battlesnake(object):
-	def __init__():
+	def __init__(self):
 		self.brain = None
 
 	@cherrypy.expose
