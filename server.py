@@ -1,5 +1,4 @@
 import os
-import random
 
 import cherrypy
 from brain import Brain
@@ -32,8 +31,6 @@ class Battlesnake(object):
 		self.brain = Brain()
 		self.brain.start(data)
 
-		self.brain.update_map(data)
-
 		print("START")
 		return "ok"
 
@@ -45,12 +42,9 @@ class Battlesnake(object):
 		# Valid moves are "up", "down", "left", or "right".
 		# TODO: Use the information in cherrypy.request.json to decide your next move.
 		data = cherrypy.request.json
-
-		# Choose a random direction to move in
-		possible_moves = ["up", "down", "left", "right"]
-		move = random.choice(possible_moves)
-
 		self.brain.update_map(data)
+
+		move = self.brain.move(data)
 
 		print(f"MOVE: {move}")
 		return {"move": move}

@@ -3,11 +3,16 @@ import numpy as np
 class Brain:
 	def __init__(self):
 		self.board_width = 0
-		self.game = None
+		self.game_map = None
 
 	def start(self, data):
 		self.board_width = data['board']['width'] + 2
-		self.game_map = np.zeros((self.board_width, self.board_width), dtype=int)
+		self.update_map(data)
+
+	def move(self, data):
+		possible_moves = ["up", "down", "left", "right"]
+		self.update_map(data)
+		return possible_moves[0]
 
 	def update_map(self, data):
 		self.game_map = np.zeros((self.board_width, self.board_width), dtype=int)
