@@ -6,11 +6,11 @@ class Brain:
 		self.game = None
 
 	def start(self, data):
-		self.board_width = data['data']['board']['width'] + 2
-		self.game_map = np.zeros(self.board_width, self.board_width)
+		self.board_width = data['board']['width'] + 2
+		self.game_map = np.zeros((self.board_width, self.board_width), dtype=int)
 
 	def update_map(self, data):
-		self.game_map = np.zeros(self.board_width, self.board_width)
+		self.game_map = np.zeros((self.board_width, self.board_width), dtype=int)
 		
 		#adds walls to map
 		for i in range(self.board_width):

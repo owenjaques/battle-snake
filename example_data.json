@@ -1,27 +1,26 @@
 {
-	"data": {
-		"game": {
-			"id": "1ce26227-d09d-443d-ae0f-b412d20aaf1a",
-			"ruleset": {"name": "standard", "version": "v1.0.17"},
-			"timeout": 500
-		}, 
-		"turn": 0,
-		"board": {
-			"height": 11, 
-			"width": 11, 
-			"snakes": [
-				{"id": "gs_vGSb66VmkJVKVRvyQYM9Gc9b", "name": "Owen's snake v3", "latency": "", "health": 100, "body": [{"x": 1, "y": 9}, {"x": 1, "y": 9}, {"x": 1, "y": 9}], "head": {"x": 1, "y": 9}, "length": 3, "shout": ""},
-				{"id": "gs_PJPbhQffr6FH3tVwWjX4PqFD", "name": "IronSnake", "latency": "", "health": 100, "body": [{"x": 5, "y": 9}, {"x": 5, "y": 9}, {"x": 5, "y": 9}], "head": {"x": 5, "y": 9}, "length": 3, "shout": ""}
-			],
-			"food": [{"x": 0, "y": 8}, {"x": 4, "y": 8}, {"x": 5, "y": 5}],
-			"hazards": []},
-			"you": {
-				"id": "gs_vGSb66VmkJVKVRvyQYM9Gc9b",
-				"name": "Owen's snake v3", "latency": "",
-				"health": 100,
-				"body": [{"x": 1, "y": 9}, {"x": 1, "y": 9}, {"x": 1, "y": 9}], "head": {"x": 1, "y": 9},
-				"length": 3,
-				"shout": ""
-			}
-		}
+	"game": {
+		"id": "1ce26227-d09d-443d-ae0f-b412d20aaf1a",
+		"ruleset": {"name": "standard", "version": "v1.0.17"},
+		"timeout": 500
+	}, 
+	"turn": 0,
+	"board": {
+		"height": 11, 
+		"width": 11, 
+		"snakes": [
+			{"id": "gs_vGSb66VmkJVKVRvyQYM9Gc9b", "name": "Owen's snake v3", "latency": "", "health": 100, "body": [{"x": 1, "y": 9}, {"x": 1, "y": 9}, {"x": 1, "y": 9}], "head": {"x": 1, "y": 9}, "length": 3, "shout": ""},
+			{"id": "gs_PJPbhQffr6FH3tVwWjX4PqFD", "name": "IronSnake", "latency": "", "health": 100, "body": [{"x": 5, "y": 9}, {"x": 5, "y": 9}, {"x": 5, "y": 9}], "head": {"x": 5, "y": 9}, "length": 3, "shout": ""}
+		],
+		"food": [{"x": 0, "y": 8}, {"x": 4, "y": 8}, {"x": 5, "y": 5}],
+		"hazards": []
+	},
+	"you": {
+		"id": "gs_vGSb66VmkJVKVRvyQYM9Gc9b",
+		"name": "Owen's snake v3", "latency": "",
+		"health": 100,
+		"body": [{"x": 1, "y": 9}, {"x": 1, "y": 9}, {"x": 1, "y": 9}], "head": {"x": 1, "y": 9},
+		"length": 3,
+		"shout": ""
+	}
 }
