@@ -1,6 +1,10 @@
 import numpy as np
 
 class Brain:
+	def __init__():
+		self.board_width = 0
+		self.game = None
+
 	def start(self, data):
 		self.board_width = data['data']['board']['width'] + 2
 		self.game_map = np.zeros(self.board_width, self.board_width)

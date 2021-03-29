@@ -4,13 +4,9 @@ import random
 import cherrypy
 from snakeBrain import Brain
 
-"""
-This is a simple Battlesnake server written in Python.
-For instructions see https://github.com/BattlesnakeOfficial/starter-snake-python/README.md
-"""
-
-
 class Battlesnake(object):
+	def __init__():
+		self.brain = None
 	@cherrypy.expose
 	@cherrypy.tools.json_out()
 	def index(self):
@@ -35,7 +31,7 @@ class Battlesnake(object):
 		self.brain = Brain()
 		self.brain.start(data)
 
-		self.brain.update_map()
+		self.brain.update_map(data)
 
 		print("START")
 		return "ok"
@@ -53,7 +49,7 @@ class Battlesnake(object):
 		possible_moves = ["up", "down", "left", "right"]
 		move = random.choice(possible_moves)
 
-		self.brain.update_map()
+		self.brain.update_map(data)
 
 		print(f"MOVE: {move}")
 		return {"move": move}
