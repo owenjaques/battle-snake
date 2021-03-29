@@ -38,4 +38,4 @@ class Brain:
 		y = head['y'] + 1
 		self.game_map[y][x] = 4
 
-		print(self.game_map)
+		print(np.flip(self.game_map, 0))
