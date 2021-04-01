@@ -1,9 +1,19 @@
 import numpy as np
+import json
+
+TILES = {
+	EMPTY: 0,
+	WALL: 1,
+	BODY: 2,
+	FOOD: 3,
+	HEAD: 4
+}
 
 class Brain:
 	def __init__(self):
 		self.board_width = 0
 		self.game_map = None
+		self.game_data = []
 
 	def start(self, data):
 		self.board_width = data['board']['width'] + 2
@@ -12,7 +22,19 @@ class Brain:
 	def move(self, data):
 		possible_moves = ["up", "down", "left", "right"]
 		self.update_map(data)
+		self.game_map.append(data)
 		return possible_moves[0]
+
+	def end(self, data):
+		self.game_map.append(data)
+		self.dump_game(data)
+
+	def dump_game(self, data):
+		with open('games.json', 'w') as f:
+			games = json.load(f)
+			games[data['game']['id']] = self.game_data
+			json.dump(games, f)
+
 
 	def update_map(self, data):
 		self.game_map = np.zeros((self.board_width, self.board_width), dtype=int)
@@ -43,4 +65,4 @@ class Brain:
 		y = head['y'] + 1
 		self.game_map[y][x] = 4
 
-		print(np.flip(self.game_map, 0))
+		# print(np.flip(self.game_map, 0))
