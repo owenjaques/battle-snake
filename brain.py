@@ -30,10 +30,11 @@ class Brain:
 		self.dump_game(data)
 
 	def dump_game(self, data):
-		with open('games.json', 'w+') as f:
+		with open('games.json', 'r+') as f:
 			try:
 				games = json.load(f)
-			except:
+			except Exception as e:
+				print(e)
 				games = {}
 			games[data['game']['id']] = self.game_data
 			json.dump(games, f)
