@@ -1,13 +1,13 @@
 import numpy as np
 import json
 
-TILES = {
-	EMPTY: 0,
-	WALL: 1,
-	BODY: 2,
-	FOOD: 3,
-	HEAD: 4
-}
+# TILES = {
+# 	EMPTY: 0,
+# 	WALL: 1,
+# 	BODY: 2,
+# 	FOOD: 3,
+# 	HEAD: 4
+# }
 
 class Brain:
 	def __init__(self):

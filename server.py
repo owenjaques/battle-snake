@@ -55,6 +55,7 @@ class Battlesnake(object):
 		# This function is called when a game your snake was in ends.
 		# It's purely for informational purposes, you don't have to make any decisions here.
 		data = cherrypy.request.json
+		self.brain.end(data)
 
 		print("END")
 		return "ok"
