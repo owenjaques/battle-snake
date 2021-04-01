@@ -22,16 +22,19 @@ class Brain:
 	def move(self, data):
 		possible_moves = ["up", "down", "left", "right"]
 		self.update_map(data)
-		self.game_map.append(data)
+		self.game_data.append(data)
 		return possible_moves[0]
 
 	def end(self, data):
-		self.game_map.append(data)
+		self.game_data.append(data)
 		self.dump_game(data)
 
 	def dump_game(self, data):
-		with open('games.json', 'w') as f:
-			games = json.load(f)
+		with open('games.json', 'w+') as f:
+			try:
+				games = json.load(f)
+			except:
+				games = {}
 			games[data['game']['id']] = self.game_data
 			json.dump(games, f)
 
