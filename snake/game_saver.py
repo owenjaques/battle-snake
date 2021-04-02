@@ -14,7 +14,7 @@ class GameSaver:
 			print('Game data is empty. Not saving to file.')
 
 		try:
-			with open('saved_games/' + id +'.json', 'x') as f:
+			with open('game_data/' + id +'.json', 'x') as f:
 				json.dump(self.game_data, f)
 		except Exception as e:
 			print('Error saving game data to file.')
