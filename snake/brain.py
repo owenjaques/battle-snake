@@ -5,6 +5,7 @@
 # remove wall from game data
 # create did eat food function
 # create snake file
+# re add randomness
 
 import numpy as np
 from game_saver import GameSaver
