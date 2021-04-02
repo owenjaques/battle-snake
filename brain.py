@@ -1,5 +1,13 @@
+#TODO: move all data processing related functions to a seperate file
+# create did collide with self function
+# create did collide with wall function
+# create did kill other snake function
+# remove wall from game data
+# create did eat food function
+
 import numpy as np
 import json
+from game_saver import GameSaver
 
 # TILES = {
 # 	EMPTY: 0,
@@ -13,7 +21,7 @@ class Brain:
 	def __init__(self):
 		self.board_width = 0
 		self.game_map = None
-		self.game_data = []
+		self.game_saver = GameSaver()
 
 	def start(self, data):
 		self.board_width = data['board']['width'] + 2
@@ -22,23 +30,12 @@ class Brain:
 	def move(self, data):
 		possible_moves = ["up", "down", "left", "right"]
 		self.update_map(data)
-		self.game_data.append(data)
+		self.game_saver.save_move(data)
 		return possible_moves[0]
 
 	def end(self, data):
-		self.game_data.append(data)
-		self.dump_game(data)
-
-	def dump_game(self, data):
-		with open('games.json', 'r+') as f:
-			try:
-				games = json.load(f)
-			except Exception as e:
-				print(e)
-				games = {}
-			games[data['game']['id']] = self.game_data
-			json.dump(games, f)
-
+		self.game_saver.save_move(data)
+		self.game_saver.save_game_to_file()
 
 	def update_map(self, data):
 		self.game_map = np.zeros((self.board_width, self.board_width), dtype=int)
