@@ -1,3 +1,5 @@
+import json
+
 class GameSaver:
 	def __init__(self):
 		self.game_data = []
@@ -12,7 +14,7 @@ class GameSaver:
 			print('Game data is empty. Not saving to file.')
 
 		try:
-			with open('savedGames/' + id +'.json', 'x') as f:
+			with open('saved_games/' + id +'.json', 'x') as f:
 				json.dump(self.game_data, f)
 		except Exception as e:
 			print('Error saving game data to file.')

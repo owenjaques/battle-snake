@@ -4,9 +4,9 @@
 # create did kill other snake function
 # remove wall from game data
 # create did eat food function
+# create snake file
 
 import numpy as np
-import json
 from game_saver import GameSaver
 
 # TILES = {
