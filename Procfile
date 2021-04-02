@@ -1,1 +1,1 @@
-web: python server.py
+web: python snake/server.py
