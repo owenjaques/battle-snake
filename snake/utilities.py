@@ -35,27 +35,29 @@ class GameSaver:
 
 def get_map(data):
 	board_width = data['board']['width']
-	map = np.zeros((board_width, board_width), dtype=int)
+	game_map = np.zeros((board_width, board_width), dtype=int)
 
 	# adds all food to map
 	for food in data['board']['food']:
 		x = food['x']
 		y = food['y']
-		map[y][x] = FOOD
+		game_map[y][x] = FOOD
 	
 	# adds all snake parts to map
 	for snake in data['board']['snakes']:
 		for points in snake['body']:
 			x = points['x']
 			y = points['y']
-			map[y][x] = SNAKE
+			game_map[y][x] = SNAKE
 
 	# adds your snake's head to map
 	head = data['you']['body'][0]
 	x = head['x']
 	y = head['y']
-	map[y][x] = HEAD
+	game_map[y][x] = HEAD
 
-def print_map(map):
+	return game_map
+
+def print_map(game_map):
 	# flips the y axis so that it can match what the screen shows
-	print(np.flip(map, 0))
+	print(np.flip(game_map, 0))
