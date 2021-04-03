@@ -1,71 +1,56 @@
 import os
 
 import cherrypy
-from brain import Brain
+from snake import Snake
 
 class Battlesnake(object):
 	def __init__(self):
-		self.brain = None
+		self.snake = Snake()
 
 	@cherrypy.expose
 	@cherrypy.tools.json_out()
 	def index(self):
-		# This function is called when you register your Battlesnake on play.battlesnake.com
-		# It controls your Battlesnake appearance and author permissions.
-		# TIP: If you open your Battlesnake URL in browser you should see this data
 		return {
-			"apiversion": "1",
-			"author": "owenj",
-			"color": "#888888",  # TODO: Personalize
-			"head": "default",  # TODO: Personalize
-			"tail": "default",  # TODO: Personalize
+			'apiversion': '1',
+			'author': 'owenj',
+			'color': '#906df9',
+			'head': 'default',
+			'tail': 'default'
 		}
 
 	@cherrypy.expose
 	@cherrypy.tools.json_in()
 	def start(self):
-		# This function is called everytime your snake is entered into a game.
-		# cherrypy.request.json contains information about the game that's about to be played.
 		data = cherrypy.request.json
+		self.snake.start(data)
 
-		self.brain = Brain()
-		self.brain.start(data)
-
-		print("START")
-		return "ok"
+		print('START')
+		return 'ok'
 
 	@cherrypy.expose
 	@cherrypy.tools.json_in()
 	@cherrypy.tools.json_out()
 	def move(self):
-		# This function is called on every turn of a game. It's how your snake decides where to move.
-		# Valid moves are "up", "down", "left", or "right".
-		# TODO: Use the information in cherrypy.request.json to decide your next move.
 		data = cherrypy.request.json
-		self.brain.update_map(data)
+		move = self.snake.move(data)
 
-		move = self.brain.move(data)
-
-		print(f"MOVE: {move}")
-		return {"move": move}
+		print('MOVE:', move)
+		return {'move': move}
 
 	@cherrypy.expose
 	@cherrypy.tools.json_in()
 	def end(self):
-		# This function is called when a game your snake was in ends.
-		# It's purely for informational purposes, you don't have to make any decisions here.
 		data = cherrypy.request.json
-		self.brain.end(data)
+		self.snake.end(data)
 
-		print("END")
-		return "ok"
+		print('END')
+		return 'ok'
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
 	server = Battlesnake()
-	cherrypy.config.update({"server.socket_host": "0.0.0.0"})
+	cherrypy.config.update({'server.socket_host': '0.0.0.0'})
 	cherrypy.config.update(
-		{"server.socket_port": int(os.environ.get("PORT", "8080")),}
+		{'server.socket_port': int(os.environ.get('PORT', '8080')),}
 	)
-	print("Starting Battlesnake Server...")
+	print('Starting Battlesnake Server...')
 	cherrypy.quickstart(server)
