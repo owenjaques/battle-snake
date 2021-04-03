@@ -16,8 +16,8 @@ class Battlesnake(object):
 			'apiversion': '1',
 			'author': 'owenj',
 			'color': '#906df9',
-			'head': 'default',
-			'tail': 'default'
+			'head': 'caffeine',
+			'tail': 'round-bum'
 		}
 
 	@cherrypy.expose
