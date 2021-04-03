@@ -4,6 +4,8 @@ import cherrypy
 from snake import Snake
 
 # TODO: make this support multiple games at once
+# TODO: once this is working semi well and the snake is made public, switch to Heroku and find a way to keep
+#		the app from sleeping (Heroku free apps sleep after 30 minutes of inactivity)
 
 class Battlesnake(object):
 	def __init__(self):
