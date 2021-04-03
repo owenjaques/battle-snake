@@ -63,4 +63,4 @@ def print_map(game_map):
 	print(np.flip(game_map, 0))
 
 def did_die(data):
-	return True if data['you'] in data['board']['snakes'] else False
+	return False if data['you'] in data['board']['snakes'] else True
