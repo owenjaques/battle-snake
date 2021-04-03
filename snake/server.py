@@ -3,6 +3,8 @@ import os
 import cherrypy
 from snake import Snake
 
+# TODO: make this support multiple games at once
+
 class Battlesnake(object):
 	def __init__(self):
 		self.snake = Snake()
