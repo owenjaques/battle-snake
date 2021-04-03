@@ -61,3 +61,6 @@ def get_map(data):
 def print_map(game_map):
 	# flips the y axis so that it can match what the screen shows
 	print(np.flip(game_map, 0))
+
+def did_die(data):
+	return True if data['you'] in data['board']['snakes'] else False
