@@ -7,11 +7,11 @@ import numpy as np
 # TODO: create did kill other snake function
 # TODO: create did eat food function
 
-class Tiles(Enum):
-	FREE = 0
-	FOOD = 1
-	SNAKE = 2
-	HEAD = 3
+# TODO: move this to a seperate 'constants' file
+FREE = 0
+FOOD = 1
+SNAKE = 2
+HEAD = 3
 
 class GameSaver:
 	def __init__(self):
@@ -41,20 +41,20 @@ def get_map(data):
 	for food in data['board']['food']:
 		x = food['x']
 		y = food['y']
-		map[y][x] = Tiles.FOOD
+		map[y][x] = FOOD
 	
 	# adds all snake parts to map
 	for snake in data['board']['snakes']:
 		for points in snake['body']:
 			x = points['x']
 			y = points['y']
-			map[y][x] = Tiles.SNAKE
+			map[y][x] = SNAKE
 
 	# adds your snake's head to map
 	head = data['you']['body'][0]
 	x = head['x']
 	y = head['y']
-	map[y][x] = Tiles.HEAD
+	map[y][x] = HEAD
 
 def print_map(map):
 	# flips the y axis so that it can match what the screen shows
