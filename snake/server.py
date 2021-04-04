@@ -1,7 +1,7 @@
 import os
 
 import cherrypy
-from snake import Snake
+from snake.snake import Snake
 
 # TODO: make this support multiple games at once
 # TODO: once this is working semi well and the snake is made public, switch to Heroku and find a way to keep

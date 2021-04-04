@@ -1,4 +1,4 @@
-from utilities import *
+from snake.utilities import *
 import random
 
 class Snake:
