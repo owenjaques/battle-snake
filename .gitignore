@@ -1,6 +1,5 @@
-*.DS_Store
 *.pyc
-.cmd
-.idea
 .vscode
 env
+training/engine/*
+!.keep
