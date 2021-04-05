@@ -13,6 +13,7 @@ FOOD = 1
 SNAKE = 2
 HEAD = 3
 
+# TODO: refactor / remove this
 class GameSaver:
 	def __init__(self):
 		self.game_data = []
